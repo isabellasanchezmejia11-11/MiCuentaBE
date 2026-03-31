@@ -1,0 +1,28 @@
+package com.fabricaescuela.micuenta.infraestructure.persistence.mapper;
+
+import org.springframework.stereotype.Component;
+
+import com.fabricaescuela.micuenta.domain.model.User;
+import com.fabricaescuela.micuenta.infraestructure.persistence.entity.UserEntity;
+
+@Component
+public class UserMapper {
+
+    public User toDomain(UserEntity entity) {
+        return new User(
+                entity.getId(),
+                entity.getName(),
+                entity.getEmail(),
+                entity.getPasswordHash()
+        );
+    }
+
+    public UserEntity toEntity(User user) {
+        return new UserEntity(
+                user.id(),
+                user.name(),
+                user.email(),
+                user.passwordHash()
+        );
+    }
+}
