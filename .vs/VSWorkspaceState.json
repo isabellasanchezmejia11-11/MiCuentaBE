@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.mvn",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\java",
+    "\\src\\main\\java\\com",
+    "\\src\\main\\java\\com\\fabricaescuela",
+    "\\src\\main\\java\\com\\fabricaescuela\\micuenta",
+    "\\src\\main\\resources"
+  ],
+  "SelectedNode": "\\src\\main\\java\\com\\fabricaescuela\\micuenta\\MicuentaApplication.java",
+  "PreviewInSolutionExplorer": false
+}
