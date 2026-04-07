@@ -1,4 +1,4 @@
-package com.fabricaescuela.micuenta.infraestructure.security;
+package com.fabricaescuela.micuenta.infrastructure.security;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

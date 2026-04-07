@@ -1,8 +1,8 @@
-package com.fabricaescuela.micuenta.infraestructure.persistence.repository;
+package com.fabricaescuela.micuenta.infrastructure.persistence.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.fabricaescuela.micuenta.infraestructure.persistence.entity.UserEntity;
+import com.fabricaescuela.micuenta.infrastructure.persistence.entity.UserEntity;
 
 import java.util.Optional;
 

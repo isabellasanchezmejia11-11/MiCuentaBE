@@ -1,4 +1,4 @@
-package com.fabricaescuela.micuenta.infraestructure.config;
+package com.fabricaescuela.micuenta.infrastructure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.fabricaescuela.micuenta.infraestructure.security.JwtAuthenticationFilter;
+import com.fabricaescuela.micuenta.infrastructure.security.JwtAuthenticationFilter;
 
 import jakarta.servlet.http.HttpServletResponse;
 

@@ -1,9 +1,9 @@
-package com.fabricaescuela.micuenta.infraestructure.persistence.mapper;
+package com.fabricaescuela.micuenta.infrastructure.persistence.mapper;
 
 import org.springframework.stereotype.Component;
 
 import com.fabricaescuela.micuenta.domain.model.User;
-import com.fabricaescuela.micuenta.infraestructure.persistence.entity.UserEntity;
+import com.fabricaescuela.micuenta.infrastructure.persistence.entity.UserEntity;
 
 @Component
 public class UserMapper {

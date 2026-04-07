@@ -1,4 +1,4 @@
-package com.fabricaescuela.micuenta.infraestructure.persistence.adapter;
+package com.fabricaescuela.micuenta.infrastructure.persistence.adapter;
 
 
 
@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import com.fabricaescuela.micuenta.domain.model.User;
 import com.fabricaescuela.micuenta.domain.repository.UserRepository;
-import com.fabricaescuela.micuenta.infraestructure.persistence.entity.UserEntity;
-import com.fabricaescuela.micuenta.infraestructure.persistence.mapper.UserMapper;
-import com.fabricaescuela.micuenta.infraestructure.persistence.repository.UserJpaRepository;
+import com.fabricaescuela.micuenta.infrastructure.persistence.entity.UserEntity;
+import com.fabricaescuela.micuenta.infrastructure.persistence.mapper.UserMapper;
+import com.fabricaescuela.micuenta.infrastructure.persistence.repository.UserJpaRepository;
 
 import java.util.Optional;
 

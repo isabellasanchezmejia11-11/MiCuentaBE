@@ -1,4 +1,4 @@
-package com.fabricaescuela.micuenta.infraestructure.persistence.entity;
+package com.fabricaescuela.micuenta.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 

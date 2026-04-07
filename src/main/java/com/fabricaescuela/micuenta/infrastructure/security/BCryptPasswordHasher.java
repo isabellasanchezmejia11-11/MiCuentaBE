@@ -1,4 +1,4 @@
-package com.fabricaescuela.micuenta.infraestructure.security;
+package com.fabricaescuela.micuenta.infrastructure.security;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 

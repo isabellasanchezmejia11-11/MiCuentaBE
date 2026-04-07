@@ -1,4 +1,4 @@
-package com.fabricaescuela.micuenta.infraestructure.security;
+package com.fabricaescuela.micuenta.infrastructure.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
