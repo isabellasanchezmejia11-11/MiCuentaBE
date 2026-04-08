@@ -22,6 +22,6 @@ public class GetCurrentUserUseCase {
         User user = userRepository.findByEmail(email.trim().toLowerCase())
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
 
-        return new UserResponse(user.id(), user.name(), user.email());
+        return new UserResponse(user.id(), user.name(), user.lastname(), user.email());
     }
 }

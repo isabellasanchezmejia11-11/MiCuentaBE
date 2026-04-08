@@ -15,6 +15,9 @@ public class UserEntity {
     @Column(nullable = false, length = 120)
     private String name;
 
+    @Column(nullable = false, length = 120)
+    private String lastname;
+
     @Column(nullable = false, length = 180)
     private String email;
 
@@ -24,9 +27,10 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(Long id, String name, String email, String passwordHash) {
+    public UserEntity(Long id, String name, String lastname, String email, String passwordHash) {
         this.id = id;
         this.name = name;
+        this.lastname = lastname;
         this.email = email;
         this.passwordHash = passwordHash;
     }
@@ -37,6 +41,10 @@ public class UserEntity {
 
     public String getName() {
         return name;
+    }
+
+    public String getLastname() {
+        return lastname;
     }
 
     public String getEmail() {
@@ -55,6 +63,10 @@ public class UserEntity {
         this.name = name;
     }
 
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -62,4 +74,5 @@ public class UserEntity {
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
+
 }

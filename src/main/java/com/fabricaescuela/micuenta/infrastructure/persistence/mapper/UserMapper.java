@@ -12,6 +12,7 @@ public class UserMapper {
         return new User(
                 entity.getId(),
                 entity.getName(),
+                entity.getLastname(),
                 entity.getEmail(),
                 entity.getPasswordHash()
         );
@@ -21,6 +22,7 @@ public class UserMapper {
         return new UserEntity(
                 user.id(),
                 user.name(),
+                user.lastname(),
                 user.email(),
                 user.passwordHash()
         );

@@ -35,11 +35,12 @@ public class RegisterUserUseCase {
                 new User(
                         null,
                         request.name().trim(),
+                        request.lastname().trim(),
                         normalizedEmail,
                         encodedPassword
                 )
         );
 
-        return new UserResponse(savedUser.id(), savedUser.name(), savedUser.email());
+        return new UserResponse(savedUser.id(), savedUser.name(), savedUser.lastname(), savedUser.email());
     }
 }
