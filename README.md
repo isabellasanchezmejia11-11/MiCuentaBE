@@ -21,12 +21,14 @@ Se utilizó arquitectura limpia para separar la lógica del negocio de la infrae
 
 *HU que implementamos:*
 
--Registro de usuario
--Inicio de sesión
--Registro de ingreso 
--Registro de gasto
--Listar Movimientos
--Dashboard financiero general
+| HU | Nombre | SP | Descripción |
+|----|--------|-----|-------------|
+| HU-01 | Registro de usuario | 3 | Crear cuenta con nombre, correo y contraseña |
+| HU-03 | Inicio de sesión | 3 | Login con correo y contraseña |
+| HU-08 | Registrar ingreso | 3 | Registrar ingresos con monto, fecha, categoría |
+| HU-09 | Registrar gasto | 5 | Registrar gastos con alertas de presupuesto |
+| HU-10 | Listar movimientos | 3 | Ver historial de movimientos con filtros |
+| HU-18 | Dashboard financiero | 3 | Resumen con stats y gráfica de evolución |
 
 ---
 
