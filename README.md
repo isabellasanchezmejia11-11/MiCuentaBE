@@ -16,7 +16,7 @@ Se utilizó arquitectura limpia para separar la lógica del negocio de la infrae
 
 *Proyecto base en Spring Boot:*
 
--Back: https://github.com/isabellasanchezmejia11-11/MiCuentaBE/tree/AddMovements
+-Back: https://github.com/isabellasanchezmejia11-11/MiCuentaBE
 -Front (opcional): https://github.com/isabellasanchezmejia11-11/MiCuenta_frontend-main
 
 *HU que implementamos:*
