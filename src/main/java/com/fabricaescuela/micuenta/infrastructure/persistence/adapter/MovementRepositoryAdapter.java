@@ -50,6 +50,14 @@ public class MovementRepositoryAdapter implements MovementRepository {
     }
 
     @Override
+    public List<Movement> findByUserIdWithFilters(Long userId, MovementType type, Long categoryId, LocalDate startDate, LocalDate endDate) {
+        return movementJpaRepository.findByUserIdWithFilters(userId, type, categoryId, startDate, endDate)
+                .stream()
+                .map(movementMapper::toDomain)
+                .toList();
+    }
+
+    @Override
     public BigDecimal sumAmountByUserIdAndType(Long userId, MovementType type) {
         return movementJpaRepository.sumAmountByUserIdAndType(userId, type);
     }

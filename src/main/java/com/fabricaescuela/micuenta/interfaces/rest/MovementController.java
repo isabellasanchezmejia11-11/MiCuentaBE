@@ -1,7 +1,7 @@
-package com.fabricaescuela.micuenta.interfaces.rest;
-
+import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -9,14 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fabricaescuela.micuenta.application.dto.request.CreateMovementRequest;
 import com.fabricaescuela.micuenta.application.dto.response.MovementResponse;
 import com.fabricaescuela.micuenta.application.usecase.ListExpensesUseCase;
 import com.fabricaescuela.micuenta.application.usecase.ListIncomesUseCase;
-import com.fabricaescuela.micuenta.application.usecase.RegisterExpenseUseCase;
-import com.fabricaescuela.micuenta.application.usecase.RegisterIncomeUseCase;
+import com.fabricaescuela.micuenta.application.usecase.ListMovementsUseCase;
+import com.fabricaescuela.micuenta.domain.model.MovementType;
 
 import jakarta.validation.Valid;
 
@@ -28,17 +29,20 @@ public class MovementController {
     private final RegisterExpenseUseCase registerExpenseUseCase;
     private final ListIncomesUseCase listIncomesUseCase;
     private final ListExpensesUseCase listExpensesUseCase;
+    private final ListMovementsUseCase listMovementsUseCase;
 
     public MovementController(
             RegisterIncomeUseCase registerIncomeUseCase,
             RegisterExpenseUseCase registerExpenseUseCase,
             ListIncomesUseCase listIncomesUseCase,
-            ListExpensesUseCase listExpensesUseCase
+            ListExpensesUseCase listExpensesUseCase,
+            ListMovementsUseCase listMovementsUseCase
     ) {
         this.registerIncomeUseCase = registerIncomeUseCase;
         this.registerExpenseUseCase = registerExpenseUseCase;
         this.listIncomesUseCase = listIncomesUseCase;
         this.listExpensesUseCase = listExpensesUseCase;
+        this.listMovementsUseCase = listMovementsUseCase;
     }
 
     @PostMapping("/incomes")
@@ -71,5 +75,23 @@ public class MovementController {
     public ResponseEntity<List<MovementResponse>> listExpenses(Authentication authentication) {
         String email = (String) authentication.getPrincipal();
         return ResponseEntity.ok(listExpensesUseCase.execute(email));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<MovementResponse>> listMovements(
+            @RequestParam(required = false) MovementType type,
+            @RequestParam(required = false) Long categoryId,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
+            Authentication authentication
+    ) {
+        String email = (String) authentication.getPrincipal();
+        List<MovementResponse> movements = listMovementsUseCase.execute(email, type, categoryId, startDate, endDate);
+
+        if (movements.isEmpty()) {
+            return ResponseEntity.ok(List.of()); // Return empty list instead of 404
+        }
+
+        return ResponseEntity.ok(movements);
     }
 }

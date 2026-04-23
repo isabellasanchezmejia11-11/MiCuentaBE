@@ -1,5 +1,3 @@
-package com.fabricaescuela.micuenta.infrastructure.persistence.repository;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -19,6 +17,23 @@ public interface MovementJpaRepository extends JpaRepository<MovementEntity, Lon
             Long userId,
             LocalDate startDate,
             LocalDate endDate
+    );
+
+    @Query("""
+            SELECT m FROM MovementEntity m
+            WHERE m.userId = :userId
+              AND (:type IS NULL OR m.type = :type)
+              AND (:categoryId IS NULL OR m.categoryId = :categoryId)
+              AND (:startDate IS NULL OR m.date >= :startDate)
+              AND (:endDate IS NULL OR m.date <= :endDate)
+            ORDER BY m.date DESC, m.id DESC
+            """)
+    List<MovementEntity> findByUserIdWithFilters(
+            @Param("userId") Long userId,
+            @Param("type") MovementType type,
+            @Param("categoryId") Long categoryId,
+            @Param("startDate") LocalDate startDate,
+            @Param("endDate") LocalDate endDate
     );
 
     @Query("""
