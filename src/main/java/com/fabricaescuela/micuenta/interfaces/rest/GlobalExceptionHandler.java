@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.fabricaescuela.micuenta.application.exception.EmailAlreadyExistsException;
 import com.fabricaescuela.micuenta.application.exception.InvalidCredentialsException;
 import com.fabricaescuela.micuenta.application.exception.ResourceNotFoundException;
+import com.fabricaescuela.micuenta.application.exception.BudgetAlreadyExistsException;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -24,6 +25,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EmailAlreadyExistsException.class)
     public ResponseEntity<ApiError> handleEmailAlreadyExists(
             EmailAlreadyExistsException ex,
+            HttpServletRequest request) {
+        return buildError(HttpStatus.CONFLICT, ex.getMessage(), request, null);
+    }
+
+    @ExceptionHandler(BudgetAlreadyExistsException.class)
+    public ResponseEntity<ApiError> handleBudgetAlreadyExists(
+            BudgetAlreadyExistsException ex,
             HttpServletRequest request) {
         return buildError(HttpStatus.CONFLICT, ex.getMessage(), request, null);
     }
